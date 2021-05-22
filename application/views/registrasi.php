@@ -12,14 +12,14 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
-  <link href="<?= base_url(); ?>/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="<?= base_url(); ?>assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
 </head>
 
 <body class="login-page sidebar-collapse">
   
-  <div class="page-header clear-filter" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(<?= base_url(); ?>assets/img/login.jpg)"></div>
+<div class="page-header clear-filter" filter-color="orange">
+  <div class="page-header-image" style="background-image:url(<?= base_url(); ?>assets/img/login.jpg)"></div>
     <div class="content">
       <div class="container">
         <div class="col-md-4 ml-auto mr-auto">
@@ -28,7 +28,7 @@
             <form class="form" role="form" method="post" action="registrasi">
               <div class="card-header text-center">
                 <div class="logo-container">
-                  <img src="<?= base_url(); ?>assets/img/now-logo.png" alt="">
+                  <img src="<?= base_url(); ?>assets/img/now-logo.png" alt="Logo">
                 </div>
               </div>
               <div class="card-body">
@@ -65,12 +65,15 @@
                   <input type="password" class="form-control" placeholder="Password">
                 </div>
                 <!-- Password END -->
-
               </div>
+
               <div class="card-footer text-center">
-                <button type="submit" name="registrasi" class="btn btn-primary btn-round btn-lg btn-block">Create Account
+                <a href="<?= base_url(); ?>auth/post_register" class="btn btn-primary btn-round btn-lg btn-block">Create Account</a>
                 <div class="pull-left">
-                </div>
+                  <h6>
+                    <a href="<?= base_url(); ?>auth/" class="link">Login</a>
+                  </h6>
+              </div>
             </form>
             </div>
           </div>
