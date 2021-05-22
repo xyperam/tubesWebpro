@@ -39,7 +39,7 @@ class Auth extends CI_Controller {
 				echo"
  				<script>
  					alert('Register berhasil');
- 					document.location.href = 'login';
+ 					document.location.href = 'index';
  				</script>";
 			}
 			else{

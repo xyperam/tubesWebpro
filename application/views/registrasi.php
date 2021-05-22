@@ -25,7 +25,7 @@
         <div class="col-md-4 ml-auto mr-auto">
           <div class="card card-login card-plain">
 
-            <form class="form" role="form" method="post" action="registrasi">
+            <form class="form" role="form" method="post" action="post_register">
               <div class="card-header text-center">
                 <div class="logo-container">
                   <img src="<?= base_url(); ?>assets/img/now-logo.png" alt="Logo">
@@ -68,7 +68,7 @@
               </div>
 
               <div class="card-footer text-center">
-                <a href="<?= base_url(); ?>auth/post_register" class="btn btn-primary btn-round btn-lg btn-block">Create Account</a>
+              <button type="submit" class="btn btn-primary btn-round btn-lg btn-block" name="register">Create Account</button>
                 <div class="pull-left">
                   <h6>
                     <a href="<?= base_url(); ?>auth/" class="link">Login</a>

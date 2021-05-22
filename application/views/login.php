@@ -24,8 +24,8 @@
       <div class="container">
         <div class="col-md-4 ml-auto mr-auto">
           <div class="card card-login card-plain">
-
-            <form class="form" method="" action="">
+            
+            <form class="form" role="form" method="post" action="post_login">
               <div class="card-header text-center">
                 <div class="logo-container">
                   <img src="<?= base_url(); ?>assets/img/now-logo.png" alt="">
@@ -53,7 +53,7 @@
                 </div>
               </div>
               <div class="card-footer text-center">
-                <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Login</a>
+              <button type="submit" class="btn btn-primary btn-round btn-lg btn-block" name="login">Login</button>
                 <div class="pull-left">
                   <h6>
                     <a href="<?= base_url(); ?>auth/registrasi" class="link">Create Account</a>
@@ -69,19 +69,19 @@
   
   </div>
   <!--   Core JS Files   -->
-  <script src="<?= base_url(); ?>../../assets/js/core/jquery.min.js" type="text/javascript"></script>
-  <script src="<?= base_url(); ?>../../assets/js/core/popper.min.js" type="text/javascript"></script>
-  <script src="<?= base_url(); ?>../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="<?= base_url(); ?>assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="<?= base_url(); ?>assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="<?= base_url(); ?>assets/js/core/bootstrap.min.js" type="text/javascript"></script>
   <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-  <script src="<?= base_url(); ?>../../assets/js/plugins/bootstrap-switch.js"></script>
+  <script src="<?= base_url(); ?>/assets/js/plugins/bootstrap-switch.js"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="<?= base_url(); ?>../../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <script src="<?= base_url(); ?>/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
   <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-  <script src="<?= base_url(); ?>../../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+  <script src="<?= base_url(); ?>assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-  <script src="<?= base_url(); ?>../../assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+  <script src="<?= base_url(); ?>assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
 </body>
 
 </html>
