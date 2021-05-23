@@ -71,11 +71,23 @@
       <div class="page-header-image" data-parallax="true" style="background-image:url('./assets/img/header.jpg');">
       </div>
       <div class="container">
-        <!-- <div class="content-center brand">
-          <img class="n-logo" src="./assets/img/now-logo.png" alt="">
-          <h1 class="h1-seo">Now UI Kit.</h1>
-          <h3>A beautiful Bootstrap 4 UI kit. Yours free.</h3>
-        </div> -->
+        <div class="content-center brand">
+            <form role="form" method="post" enctype="multipart/form-data">
+
+                <div class="form-group mb-3">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="title" placeholder="Title Song">
+                    </div>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" name="audio">
+                    <label class="custom-file-label" for="customFile">Music</label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-5" name="update">Simpan</button>
+                </div>
+            </form>
+        </div>
       </div>
     </div>
     

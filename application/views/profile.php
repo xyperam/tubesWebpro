@@ -85,43 +85,27 @@
       <div class="page-header-image" data-parallax="true" style="background-image:url('<?= base_url(); ?>assets/img/bg5.jpg');">
       </div>
       <div class="container">
-        <div class="photo-container">
-          <img src="<?= base_url(); ?>assets/img/ryan.jpg" alt="">
+
+      <div class="photo-container">
+      <?php if($user->avatar != null) : ?>
+        <img src="avatar/<?= $user->avatar; ?>" class="rounded-circle" width="200" height="200">
+          <?php else : ?>
+            <img src="<?= base_url(); ?>assets/img/default.jpg">
+          <?php endif; ?>
         </div>
-        <!-- <h3 class="title">Ryan Scheinder</h3> -->
+
         <h3><?= $user->username; ?></h3>
-        <p class="category">Photographer</p>
-        <div class="content">
-          <div class="social-description">
-            <h2>26</h2>
-            <p>Comments</p>
-          </div>
-          <div class="social-description">
-            <h2>26</h2>
-            <p>Comments</p>
-          </div>
-          <div class="social-description">
-            <h2>48</h2>
-            <p>Bookmarks</p>
-          </div>
-        </div>
       </div>
     </div>
     <div class="section">
       <div class="container">
         <div class="button-container">
-          <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
-          <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
+          <button href="#button" class="btn btn-primary btn-round btn-lg">Follow</button>
         </div>
         <h3 class="title">About me</h3>
-        <h5 class="description">An art by Melbournn artist of considerable range.</h5>
-        <div class="row">
-          <div class="col-md-6 ml-auto mr-auto">
+        <h5 class="title"><?= $user->bio; ?></h5>
+        <!-- <div class="row">
+           <div class="col-md-6 ml-auto mr-auto">
             <h4 class="title text-center">My Portfolio</h4>
             <div class="nav-align-center">
               <ul class="nav nav-pills nav-pills-primary nav-pills-just-icons" role="tablist">
@@ -142,9 +126,9 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> -->
           <!-- Tab panes -->
-          <div class="tab-content gallery">
+          <!-- <div class="tab-content gallery">
             <div class="tab-pane active" id="home" role="tabpanel">
               <div class="col-md-10 ml-auto mr-auto">
                 <div class="row collections">
@@ -188,40 +172,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
-    <footer class="footer footer-default">
-      <div class=" container ">
-        <nav>
-          <ul>
-            <li>
-              <a href="https://www.creative-tim.com">
-                Creative Tim
-              </a>
-            </li>
-            <li>
-              <a href="http://presentation.creative-tim.com">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com">
-                Blog
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="copyright" id="copyright">
-          &copy;
-          <script>
-            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-          </script>, Designed by
-          <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-        </div>
-      </div>
-    </footer>
   </div>
   <!--   Core JS Files   -->
   <script src="<?= base_url(); ?>assets/js/core/jquery.min.js" type="text/javascript"></script>

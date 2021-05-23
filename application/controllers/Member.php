@@ -35,6 +35,7 @@ class Member extends CI_Controller {
 		];
 		$this->load->view('profile', $data);
 	}
+
 	public function create_post()
 	{
 		$content = $this->input->post("content");
@@ -58,6 +59,7 @@ class Member extends CI_Controller {
             document.location.href = \"$this->home\";
         </script>";
 	}
+
 	private function _upload_avatar()
 	{
 		$config['upload_path']          = './avatar/';
