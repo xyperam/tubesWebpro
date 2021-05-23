@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
 			echo"
  			<script>
  				alert('Username telah terdaftar, pilih username lain');
- 				document.location.href = 'registerasi';
+ 				document.location.href = 'register';
  			</script>";
 		}
 		else

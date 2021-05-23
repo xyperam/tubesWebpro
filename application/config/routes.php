@@ -66,7 +66,7 @@ $route['admin'] = 'admin/index';
 
 
 $route['default_controller'] = 'auth/index';
-$route['profile'] = 'user/profile';
+$route['profile'] = 'member/profile';
 
 
 
