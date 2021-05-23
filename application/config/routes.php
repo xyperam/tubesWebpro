@@ -53,13 +53,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Autentikasi Login Regis
 $route['register']['get'] = 'auth/registrasi';
 $route['register']['post'] = 'auth/post_registrasi';
 $route['login']['get'] = 'auth/login';
 $route['login']['post'] = 'auth/post_login';
 $route['logout'] = 'auth/logout';
-// profile
-// $route['profile'] = 'profile/index';
+
+// Routing Pages
+$route['home'] = 'auth/home';
+$route['admin'] = 'admin/index';
+
 
 $route['default_controller'] = 'auth/index';
 $route['profile'] = 'user/profile';
+
+
+
+// $route['register']['get'] = 'auth/register';
+// $route['register']['post'] = 'auth/post_register';
+// $route['login']['get'] = 'auth/login';
+// $route['login']['post'] = 'auth/post_login';
+// $route['logout'] = 'auth/logout';
+
+// $route['default_controller'] = 'member/index';
+// $route['profile'] = 'member/profile';
+// $route['create_post'] = 'member/create_post';
+// $route['update_profile'] = 'member/update_profile';
+// $route['delete_post/(:num)'] = 'member/delete_post/$1';
+
+// $route['admin'] = 'admin/index';
+// $route['edit'] = 'admin/edit';

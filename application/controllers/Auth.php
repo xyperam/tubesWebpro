@@ -15,7 +15,7 @@ class Auth extends CI_Controller {
 	{
 		$username = $this->input->post("username");
 		$email = $this->input->post("email");
-		$password = password_hash($this->input->post("password"), PASSWORD_DEFAULT);
+		$password = password_hash($this->input->post("password1"), PASSWORD_DEFAULT);
 		
 		$user = $this->UserModel->findOne("username", $username);
 		if($user != null)
@@ -51,6 +51,12 @@ class Auth extends CI_Controller {
 			}
 		}
 	}
+
+	public function home()
+	{
+		$this->load->view('home');
+	}
+
     public function index()
 	{
 		$this->load->view('login');
@@ -58,7 +64,7 @@ class Auth extends CI_Controller {
 	public function post_login()
 	{
 		$username = $this->input->post("username");
-		$password = $this->input->post("password");
+		$password = $this->input->post("password4");
 		
 		$user = $this->UserModel->findOne("username", $username);
 		if($user != null)
@@ -69,11 +75,11 @@ class Auth extends CI_Controller {
 				if($user->role == "admin")
 				{
 					$this->session->set_userdata(["admin" => true]);
-					redirect(base_url('admin'));
+					redirect(base_url("admin "));
 				}
 				else
 				{
-					redirect(base_url());
+					redirect(base_url("home"));
 				}
 			}
 			else
@@ -81,7 +87,7 @@ class Auth extends CI_Controller {
 				echo"
  				<script>
  					alert('Password salah');
- 					document.location.href = 'login';
+ 					document.location.href = '../auth/';
  				</script>";
 			}
 		}
@@ -89,7 +95,7 @@ class Auth extends CI_Controller {
 			echo"
  			<script>
  				alert('Username belum terdaftar, silahkan register');
- 				document.location.href = 'login';
+ 				document.location.href = '../auth/registrasi';
  			</script>";
 		}
 	}

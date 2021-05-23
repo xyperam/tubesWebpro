@@ -25,7 +25,7 @@
         <div class="col-md-4 ml-auto mr-auto">
           <div class="card card-login card-plain">
             
-            <form class="form" role="form" method="post" action="post_login">
+            <form class="form" role="form" method="post" action="<?= base_url('auth/post_login'); ?>" >
               <div class="card-header text-center">
                 <div class="logo-container">
                   <img src="<?= base_url(); ?>assets/img/now-logo.png" alt="">
@@ -39,7 +39,7 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User name">
+                  <input type="text" class="form-control" placeholder="User Name" name="username" required="required">
                 </div>
                 <!-- username END -->
                 
@@ -49,7 +49,7 @@
                       <i class="fas fa-lock"></i>
                     </span>
                   </div>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" class="form-control" placeholder="Password" name="password" required="required">
                 </div>
               </div>
               <div class="card-footer text-center">

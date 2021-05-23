@@ -7,6 +7,6 @@
     <title>Beranda</title>
 </head>
 <body>
-    <h1>Page DashBoard</h1>
+    <h1>Admin</h1>
 </body>
 </html>
