@@ -7,7 +7,7 @@
   <!-- <link rel="icon" type="image/png" href="./assets/img/favicon.png"> -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Now UI Kit by Creative Tim
+    Home
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -26,7 +26,7 @@
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="<?= base_url(); ?>auth/home" rel="tooltip">
           LOGO
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,29 +35,21 @@
           <span class="navbar-toggler-bar bottom-bar"></span>
         </button>
       </div>
-      <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="<?= base_url(); ?>assets/img/blurred-image-1.jpg">
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-              <i class="fab fa-twitter"></i>
-              <p class="d-lg-none d-xl-none">Twitter</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
-              <i class="fab fa-facebook-square"></i>
-              <p class="d-lg-none d-xl-none">Facebook</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-            <i class="fas fa-sign-out-alt"></i>
-              <p class="d-lg-none d-xl-none">Logout</p>
-            </a>
+            <h6>
+                <a href="<?= base_url(); ?>auth/home" class="link">Home</a>
+            </h6>
           </li>
           <li class="nav-item">
             <h6>
-                <a href="<?= base_url(); ?>member/profile" class="link">profile</a>
+                <a href="<?= base_url(); ?>member/profile" class="link">Profile</a>
+            </h6>
+          </li>
+          <li class="nav-item">
+            <h6>
+                <a href="<?= base_url(); ?>auth/logout" class="link">Logout</a>
             </h6>
           </li>
         </ul>
@@ -67,8 +59,8 @@
   <!-- End Navbar -->
 
   <div class="wrapper">
-    <div class="page-header clear-filter" filter-color="orange">
-      <div class="page-header-image" data-parallax="true" style="background-image:url('./assets/img/header.jpg');">
+    <div class="page-header">
+      <div class="page-header-image" data-parallax="true" style="background-image:url('<?= base_url(); ?>assets/img/header.jpg');">
       </div>
       <div class="container">
         <div class="content-center brand">
