@@ -86,29 +86,21 @@
   <div class="section section-typography">
     <div class="container">
       <div class="mx-auto text-center">
-        <h2 class="font-weight-bold mb-5">Cerita Temanmu</h2>
+        <h2 class="font-weight-bold mb-5">SALE..!!!</h2>
       </div>
 
-      <?php echo $tes ?>
       <?php foreach ($posts as $post) : ?>
-        <div class="row py-3 align-items-center">
-          <div class="col-sm-3 text-center">
-
-            <?php if ($post->avatar != null) : ?>
-              <img src="avatar/<?= $post->avatar; ?>" alt="Rounded image" class="img-fluid rounded shadow" width="120">
-            <?php else : ?>
-              <img src="<?= base_url(); ?>assets/img/faces/team-1.jpg" alt="Rounded image" class="img-fluid rounded shadow" width="120">
-            <?php endif; ?>
-
+        <div class="row py-5 align-items-center">
+        
+          <div class="card mb-12">
+            <img class="card-img-top" src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title"><?= $post->username; ?></h4>
+              <p class="card-text"><?= $post->title; ?></p>
+              <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
+            </div>
           </div>
-          <div class="col-sm-9">
-            <p class="font-weight-bold">
-              <?= $post->username; ?>
-              <small class="text-muted"><?= $post->created_at; ?></small>
-            </p>
-            <img src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Rounded image" class="rounded shadow" width="120" height="120">
-            <p><?= $post->title; ?></p>
-          </div>
+
         </div>
       <?php endforeach; ?>
 
