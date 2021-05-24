@@ -68,6 +68,7 @@ $route['admin'] = 'admin/index';
 $route['default_controller'] = 'member/index';
 $route['profile'] = 'member/profile';
 $route['delete_post/(:num)'] = 'member/delete_post/$1';
+$route['update_profile'] = 'member/update_profile';
 
 
 

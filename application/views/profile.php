@@ -76,8 +76,8 @@
 
                 <form class="mt-5 px-5" action="update_profile" role="form" method="post" enctype="multipart/form-data">
 
-                  <!-- <input value="<?= $user->id; ?>" type="hidden" name="id">
-                    <input value="<?= $user->avatar; ?>" type="hidden" name="old_avatar"> -->
+                  <input value="<?= $user->id; ?>" type="hidden" name="id">
+                    <input value="<?= $user->avatar; ?>" type="hidden" name="old_avatar">
 
                   <div class="form-group mb-3">
                     <div class="input-group">
@@ -128,27 +128,24 @@
             </div>
 
             <?php foreach ($posts as $post) : ?>
-              <div class="row py-3 align-items-center">
-                <div class="col-sm-3 text-center">
 
-                  <?php if ($user->avatar != null) : ?>
-                    <img src="avatar/<?= $user->avatar; ?>" alt="Rounded image" class="rounded shadow" width="120" height="120">
-                  <?php else : ?>
-                    <img src="<?= base_url(); ?>assets/img/default.jpg" alt="Rounded image" class="rounded shadow" width="120" height="120">
-                  <?php endif; ?>
+              <div class="row py-5 align-items-center">
+                <div class="card mb-12">
+                  <img class="card-img-top" src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title"><?= $user->username; ?></h4>
+                    <p class="card-text"><?= $post->title; ?></p>
 
-                </div>
-                <div class="col-sm-9">
-                  <p class="font-weight-bold">
-                    <?= $user->username; ?>
-                    <small class="text-muted"><?= $post->created_at; ?></small>
-                    <span><a class="btn btn-danger btn-sm" href="delete_post/<?= $post->id; ?>">Hapus</a></span>
-                  </p>
+                    <div class="d-flex justify-content-between align-self-center">
+                      <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
+                      <a class="btn btn-danger btn-sm" href="delete_post/<?= $post->id; ?>">Hapus</a>
+                    </div>
 
-                  <img src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Rounded image" class="rounded shadow" width="120" height="120">
-                  <p><?= $post->title; ?></p>
+
+                  </div>
                 </div>
               </div>
+
             <?php endforeach; ?>
 
           </div>

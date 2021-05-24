@@ -94,15 +94,17 @@ class Member extends CI_Controller
 		$id = $this->input->post("id");
 		$username = $this->input->post("username");
 		$email = $this->input->post("email");
+		$bio = $this->input->post("bio");
 		$avatar = $this->input->post("old_avatar");
 
 		if (!empty($_FILES["new_avatar"]["name"])) {
-			$avatar = $this->_upload_foto()();
+			$avatar = $this->_upload_avatar();
 		}
 
 		$data = [
 			"username" => $username,
 			"email" => $email,
+			"bio" => $bio,
 			"avatar" => $avatar
 		];
 
@@ -118,6 +120,30 @@ class Member extends CI_Controller
                 alert('Profile gagal diubah');
                 document.location.href = \"$this->profile\";
             </script>";
+		}
+	}
+	private function _upload_avatar()
+	{
+		$config['upload_path']          = './avatar/';
+		$config['allowed_types']        = 'jpeg|jpg|png';
+		$config['file_name']            = uniqid();
+		$config['overwrite']			= true;
+		$config['max_size']             = 1000;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('new_avatar')) {
+			echo "
+            <script>
+                alert('Terjadi kesalahan upload');
+                document.location.href = \"$this->profile\";
+            </script>";
+			die();
+		} else {
+			if ($this->user->avatar != null && file_exists("./avatar/" . $this->user->avatar)) {
+				unlink("./avatar/" . $this->user->avatar);
+			}
+			return $this->upload->data("file_name");
 		}
 	}
 	public function delete_post($id)

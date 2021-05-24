@@ -16,6 +16,7 @@
   <!-- CSS Files -->
   <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="<?= base_url(); ?>assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
+  <link href="<?= base_url(); ?>assets/css/index.css" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?= base_url(); ?>assets/demo/demo.css" rel="stylesheet" />
 </head>
@@ -83,27 +84,26 @@
       </div>
     </div>
   </div>
-  <div class="section section-typography">
+  <div class="section section-typography card-wrapper">
     <div class="container">
       <div class="mx-auto text-center">
-        <h2 class="font-weight-bold mb-5">SALE..!!!</h2>
-      </div>
-
-      <?php foreach ($posts as $post) : ?>
-        <div class="row py-5 align-items-center">
-        
-          <div class="card mb-12">
-            <img class="card-img-top" src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title"><?= $post->username; ?></h4>
-              <p class="card-text"><?= $post->title; ?></p>
-              <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
-            </div>
+            <h2 class="font-weight-bold mb-5">SALE..!!!</h2>
           </div>
 
-        </div>
-      <?php endforeach; ?>
+          <?php foreach ($posts as $post) : ?>
+            <div class="row py-5 align-items-center">
+            
+              <div class="card mb-12">
+                <img class="card-img-top" src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Card image cap">
+                <div class="card-body">
+                  <h2 class="card-title"><?= $post->username; ?></h2>
+                  <p class="card-text"><?= $post->title; ?></p>
+                  <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
+                </div>
+              </div>
 
+            </div>
+          <?php endforeach; ?>
     </div>
   </div>
 
