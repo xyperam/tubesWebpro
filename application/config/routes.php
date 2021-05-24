@@ -70,6 +70,8 @@ $route['profile'] = 'member/profile';
 $route['delete_post/(:num)'] = 'member/delete_post/$1';
 $route['update_profile'] = 'member/update_profile';
 
+$route['search_users'] = 'member/search';
+
 
 
 // $route['register']['get'] = 'auth/register';

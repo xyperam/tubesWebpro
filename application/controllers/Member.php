@@ -161,4 +161,15 @@ class Member extends CI_Controller
             document.location.href = \"$this->profile\";
         </script>";
 	}
+	public function search()
+	{
+		$keyword = $this->input->post("search");
+
+		$data = [
+			"user" => $this->user,
+			"users" => $this->UserModel->get_keyword($keyword)
+		];
+		
+		$this->load->view('users');
+	}
 }

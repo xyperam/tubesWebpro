@@ -27,9 +27,21 @@
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="<?= base_url(); ?>member/index" rel="tooltip">
-          LOGO
-        </a>
+
+        <div class="navbar-form navbar-left d-flex">
+          <a class="navbar-brand" href="<?= base_url(); ?>member/index" rel="tooltip">
+            LOGO
+          </a>
+
+          <div class="search-wrapper d-flex">
+            <?php echo form_open('member/search') ?>
+              <input type="text" name="keyword" class="form-control" placeholder="Search" name="search" action="post">
+              <button type="submit" class="btn btn-primary">Search</button>
+            <?php echo form_close() ?>
+          </div>
+        </div>
+
+
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar top-bar"></span>
           <span class="navbar-toggler-bar middle-bar"></span>

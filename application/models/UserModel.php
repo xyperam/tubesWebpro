@@ -21,4 +21,12 @@ class UserModel extends CI_Model {
     {
         return $this->db->update($this->table, $data, array('id' => $id));
     }
+    public function get_keyword($keyword)
+    {
+        $this->db->select('*');
+        $this->db->form($table);
+        $this->db->like('username', $keyword);
+        return $this->db->get()->result();
+    }
+    
 }
