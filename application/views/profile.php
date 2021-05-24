@@ -60,12 +60,62 @@
         </div>
 
         <h3><?= $user->username; ?></h3>
+        <div class="h6 font-weight-300"><?= $user->email; ?></div>
       </div>
     </div>
     <div class="section">
       <div class="container">
         <div class="button-container">
-          <button href="#button" class="btn btn-primary btn-round btn-lg">Follow</button>
+          <!-- <button href="#button" class="btn btn-primary btn-round btn-lg">Follow</button> -->
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Edit Profile</button>
+
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+
+                <form class="mt-5 px-5" action="update_profile" role="form" method="post" enctype="multipart/form-data">
+
+                    <!-- <input value="<?= $user->id; ?>" type="hidden" name="id">
+                    <input value="<?= $user->avatar; ?>" type="hidden" name="old_avatar"> -->
+                    
+                    <div class="form-group mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                        </div>
+                        <input class="form-control" value="<?= $user->username; ?>" type="text" name="username" required>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                        </div>
+                        <input class="form-control" value="<?= $user->email; ?>" type="email" name="email" required>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                        </div>
+                        <input class="form-control" value="<?= $user->bio; ?>" type="text" name="bio" required>
+                      </div>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile" name="new_avatar">
+                      <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary my-4" name="update">Simpan</button>
+                    </div>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+
         </div>
         <h3 class="title">About me</h3>
         <h5 class="title"><?= $user->bio; ?></h5>
