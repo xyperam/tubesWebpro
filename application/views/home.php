@@ -26,7 +26,7 @@
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="<?= base_url(); ?>auth/home" rel="tooltip">
+        <a class="navbar-brand" href="<?= base_url(); ?>member/index" rel="tooltip">
           LOGO
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <h6>
-              <a href="<?= base_url(); ?>auth/home" class="link">Home</a>
+              <a href="<?= base_url(); ?>member/home" class="link">Home</a>
             </h6>
           </li>
           <li class="nav-item">
@@ -82,8 +82,40 @@
         </div>
       </div>
     </div>
-
   </div>
+  <div class="section section-typography">
+    <div class="container">
+      <div class="mx-auto text-center">
+        <h2 class="font-weight-bold mb-5">Cerita Temanmu</h2>
+      </div>
+
+      <?php echo $tes ?>
+      <?php foreach ($posts as $post) : ?>
+        <div class="row py-3 align-items-center">
+          <div class="col-sm-3 text-center">
+
+            <?php if ($post->avatar != null) : ?>
+              <img src="avatar/<?= $post->avatar; ?>" alt="Rounded image" class="img-fluid rounded shadow" width="120">
+            <?php else : ?>
+              <img src="<?= base_url(); ?>assets/img/faces/team-1.jpg" alt="Rounded image" class="img-fluid rounded shadow" width="120">
+            <?php endif; ?>
+
+          </div>
+          <div class="col-sm-9">
+            <p class="font-weight-bold">
+              <?= $post->username; ?>
+              <small class="text-muted"><?= $post->created_at; ?></small>
+            </p>
+            <img src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Rounded image" class="rounded shadow" width="120" height="120">
+            <p><?= $post->title; ?></p>
+          </div>
+        </div>
+      <?php endforeach; ?>
+
+    </div>
+  </div>
+
+
   <!--   Core JS Files   -->
   <script src="<?= base_url(); ?>assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="<?= base_url(); ?>assets/js/core/popper.min.js" type="text/javascript"></script>

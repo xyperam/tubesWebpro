@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="<?= base_url(); ?>auth/home">
+        <a class="navbar-brand" href="<?= base_url(); ?>member/index">
           Logo
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="<?= base_url(); ?>assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url(); ?>auth/home">Home</a>
+            <a class="nav-link" href="<?= base_url(); ?>member/index">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url(); ?>auth/logout">Logout</a>
@@ -51,9 +51,9 @@
       </div>
       <div class="container">
 
-      <div class="photo-container">
-      <?php if($user->avatar != null) : ?>
-        <img src="avatar/<?= $user->avatar; ?>" class="rounded-circle" width="200" height="200">
+        <div class="photo-container">
+          <?php if ($user->avatar != null) : ?>
+            <img src="avatar/<?= $user->avatar; ?>" class="rounded-circle" width="200" height="200">
           <?php else : ?>
             <img src="<?= base_url(); ?>assets/img/default.jpg">
           <?php endif; ?>
@@ -76,42 +76,42 @@
 
                 <form class="mt-5 px-5" action="update_profile" role="form" method="post" enctype="multipart/form-data">
 
-                    <!-- <input value="<?= $user->id; ?>" type="hidden" name="id">
+                  <!-- <input value="<?= $user->id; ?>" type="hidden" name="id">
                     <input value="<?= $user->avatar; ?>" type="hidden" name="old_avatar"> -->
-                    
-                    <div class="form-group mb-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                        </div>
-                        <input class="form-control" value="<?= $user->username; ?>" type="text" name="username" required>
+
+                  <div class="form-group mb-3">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                       </div>
+                      <input class="form-control" value="<?= $user->username; ?>" type="text" name="username" required>
                     </div>
-                    <div class="form-group mb-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                        </div>
-                        <input class="form-control" value="<?= $user->email; ?>" type="email" name="email" required>
+                  </div>
+                  <div class="form-group mb-3">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
+                      <input class="form-control" value="<?= $user->email; ?>" type="email" name="email" required>
                     </div>
-                    <div class="form-group mb-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                        </div>
-                        <input class="form-control" value="<?= $user->bio; ?>" type="text" name="bio" required>
+                  </div>
+                  <div class="form-group mb-3">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
+                      <input class="form-control" value="<?= $user->bio; ?>" type="text" name="bio" required>
                     </div>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile" name="new_avatar">
-                      <label class="custom-file-label" for="customFile">Pilih gambar</label>
-                    </div>
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary my-4" name="update">Simpan</button>
-                    </div>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" name="new_avatar">
+                    <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-4" name="update">Simpan</button>
+                  </div>
                 </form>
-                
+
               </div>
             </div>
           </div>
@@ -119,77 +119,44 @@
         </div>
         <h3 class="title">About me</h3>
         <h5 class="title"><?= $user->bio; ?></h5>
-        <!-- <div class="row">
-           <div class="col-md-6 ml-auto mr-auto">
-            <h4 class="title text-center">My Portfolio</h4>
-            <div class="nav-align-center">
-              <ul class="nav nav-pills nav-pills-primary nav-pills-just-icons" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#profile" role="tablist">
-                    <i class="now-ui-icons design_image"></i>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#home" role="tablist">
-                    <i class="now-ui-icons location_world"></i>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#messages" role="tablist">
-                    <i class="now-ui-icons sport_user-run"></i>
-                  </a>
-                </li>
-              </ul>
+        <div class="section section-typography">
+
+          <!-- awal container post -->
+          <div class="container">
+            <div class="mx-auto text-center">
+              <h2 class="font-weight-bold mb-5">Ceritaku</h2>
             </div>
-          </div> -->
-          <!-- Tab panes -->
-          <!-- <div class="tab-content gallery">
-            <div class="tab-pane active" id="home" role="tabpanel">
-              <div class="col-md-10 ml-auto mr-auto">
-                <div class="row collections">
-                  <div class="col-md-6">
-                    <img src="<?= base_url(); ?>assets/img/bg1.jpg" alt="" class="img-raised">
-                    <img src="<?= base_url(); ?>assets/img/bg3.jpg" alt="" class="img-raised">
-                  </div>
-                  <div class="col-md-6">
-                    <img src="<?= base_url(); ?>assets/img/bg8.jpg" alt="" class="img-raised">
-                    <img src="<?= base_url(); ?>assets/img/bg7.jpg" alt="" class="img-raised">
-                  </div>
+
+            <?php foreach ($posts as $post) : ?>
+              <div class="row py-3 align-items-center">
+                <div class="col-sm-3 text-center">
+
+                  <?php if ($user->avatar != null) : ?>
+                    <img src="avatar/<?= $user->avatar; ?>" alt="Rounded image" class="rounded shadow" width="120" height="120">
+                  <?php else : ?>
+                    <img src="<?= base_url(); ?>assets/img/default.jpg" alt="Rounded image" class="rounded shadow" width="120" height="120">
+                  <?php endif; ?>
+
+                </div>
+                <div class="col-sm-9">
+                  <p class="font-weight-bold">
+                    <?= $user->username; ?>
+                    <small class="text-muted"><?= $post->created_at; ?></small>
+                    <span><a class="btn btn-danger btn-sm" href="delete_post/<?= $post->id; ?>">Hapus</a></span>
+                  </p>
+
+                  <img src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Rounded image" class="rounded shadow" width="120" height="120">
+                  <p><?= $post->title; ?></p>
                 </div>
               </div>
-            </div>
-            <div class="tab-pane" id="profile" role="tabpanel">
-              <div class="col-md-10 ml-auto mr-auto">
-                <div class="row collections">
-                  <div class="col-md-6">
-                    <img src="<?= base_url(); ?>assets/img/bg6.jpg" class="img-raised">
-                    <img src="<?= base_url(); ?>assets/img/bg11.jpg" alt="" class="img-raised">
-                  </div>
-                  <div class="col-md-6">
-                    <img src="<?= base_url(); ?>assets/img/bg7.jpg" alt="" class="img-raised">
-                    <img src="<?= base_url(); ?>assets/img/bg8.jpg" alt="" class="img-raised">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane" id="messages" role="tabpanel">
-              <div class="col-md-10 ml-auto mr-auto">
-                <div class="row collections">
-                  <div class="col-md-6">
-                    <img src="<?= base_url(); ?>assets/img/bg3.jpg" alt="" class="img-raised">
-                    <img src="<?= base_url(); ?>assets/img/bg8.jpg" alt="" class="img-raised">
-                  </div>
-                  <div class="col-md-6">
-                    <img src="<?= base_url(); ?>assets/img/bg7.jpg" alt="" class="img-raised">
-                    <img src="<?= base_url(); ?>assets/img/bg6.jpg" class="img-raised">
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php endforeach; ?>
+
           </div>
-        </div> -->
+          <!-- end container -->
+        </div>
       </div>
     </div>
+  </div>
   </div>
   <!--   Core JS Files   -->
   <script src="<?= base_url(); ?>assets/js/core/jquery.min.js" type="text/javascript"></script>

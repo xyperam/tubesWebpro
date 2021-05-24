@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Auth extends CI_Controller
+{
 	function __construct()
 	{
 		parent::__construct();
@@ -16,34 +17,29 @@ class Auth extends CI_Controller {
 		$username = $this->input->post("username");
 		$email = $this->input->post("email");
 		$password = password_hash($this->input->post("password1"), PASSWORD_DEFAULT);
-		
+
 		$user = $this->UserModel->findOne("username", $username);
-		if($user != null)
-		{
-			echo"
+		if ($user != null) {
+			echo "
  			<script>
  				alert('Username telah terdaftar, pilih username lain');
  				document.location.href = 'register';
  			</script>";
-		}
-		else
-		{
+		} else {
 			$data = [
 				"role" => "member",
 				"username" => $username,
 				"email" => $email,
 				"password" => $password
 			];
-			if($this->UserModel->create($data) == 1)
-			{
-				echo"
+			if ($this->UserModel->create($data) == 1) {
+				echo "
  				<script>
  					alert('Register berhasil');
  					document.location.href = 'index';
  				</script>";
-			}
-			else{
-				echo"
+			} else {
+				echo "
  				<script>
  					alert('Register gagal');
  					document.location.href = 'register';
@@ -52,12 +48,7 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	public function home()
-	{
-		$this->load->view('home');
-	}
-
-    public function index()
+	public function login()
 	{
 		$this->load->view('login');
 	}
@@ -65,34 +56,26 @@ class Auth extends CI_Controller {
 	{
 		$username = $this->input->post("username");
 		$password = $this->input->post("password1");
-		
+
 		$user = $this->UserModel->findOne("username", $username);
-		if($user != null)
-		{
-			if(password_verify($password, $user->password))
-			{
+		if ($user != null) {
+			if (password_verify($password, $user->password)) {
 				$this->session->set_userdata(["login" => $user->id]);
-				if($user->role == "admin")
-				{
+				if ($user->role == "admin") {
 					$this->session->set_userdata(["admin" => true]);
 					redirect(base_url("admin "));
+				} else {
+					redirect(base_url(""));
 				}
-				else
-				{
-					redirect(base_url("home"));
-				}
-			}
-			else
-			{
-				echo"
+			} else {
+				echo "
  				<script>
  					alert('Password salah');
  					document.location.href = '../auth/';
  				</script>";
 			}
-		}
-		else{
-			echo"
+		} else {
+			echo "
  			<script>
  				alert('Username belum terdaftar, silahkan register');
  				document.location.href = '../auth/registrasi';
@@ -102,6 +85,6 @@ class Auth extends CI_Controller {
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect(base_url('auth/'));
+		redirect(base_url('auth/login'));
 	}
 }

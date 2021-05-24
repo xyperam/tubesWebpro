@@ -20,12 +20,14 @@ class Member extends CI_Controller
 	public function index()
 	{
 		$data = [
+			"tes" => "tes",
 			"user" => $this->user,
 			"posts" => $this->PostModel->findAll()
 		];
 
 		$this->load->view('home', $data);
 	}
+
 	public function profile()
 	{
 		$data = [
@@ -80,10 +82,11 @@ class Member extends CI_Controller
             </script>";
 			die();
 		} else {
-			if ($this->post->avatar != null && file_exists("./song/" . $this->post->song)) {
-				unlink("./song/" . $this->post->song);
-			}
 			return $this->upload->data("file_name");
+			// if ($this->post->avatar != null && file_exists("./song/" . $this->post->song)) {
+			// 	unlink("./song/" . $this->post->song);
+			// }
+
 		}
 	}
 	public function update_profile()

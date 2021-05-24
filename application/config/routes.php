@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -61,11 +61,11 @@ $route['login']['post'] = 'auth/post_login';
 $route['logout'] = 'auth/logout';
 
 // Routing Pages
-$route['home'] = 'auth/home';
+
 $route['admin'] = 'admin/index';
 
 
-$route['default_controller'] = 'auth/index';
+$route['default_controller'] = 'member/index';
 $route['profile'] = 'member/profile';
 
 
