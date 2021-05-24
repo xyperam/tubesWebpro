@@ -53,7 +53,7 @@
 
         <div class="photo-container">
           <?php if ($user->avatar != null) : ?>
-            <img src="avatar/<?= $user->avatar; ?>" class="rounded-circle" width="200" height="200">
+            <img src="avatar/<?= $user->avatar; ?>" width="200" height="200">
           <?php else : ?>
             <img src="<?= base_url(); ?>assets/img/default.jpg">
           <?php endif; ?>
