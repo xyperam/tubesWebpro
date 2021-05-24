@@ -39,17 +39,17 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <h6>
-                <a href="<?= base_url(); ?>auth/home" class="link">Home</a>
+              <a href="<?= base_url(); ?>auth/home" class="link">Home</a>
             </h6>
           </li>
           <li class="nav-item">
             <h6>
-                <a href="<?= base_url(); ?>member/profile" class="link">Profile</a>
+              <a href="<?= base_url(); ?>member/profile" class="link">Profile</a>
             </h6>
           </li>
           <li class="nav-item">
             <h6>
-                <a href="<?= base_url(); ?>auth/logout" class="link">Logout</a>
+              <a href="<?= base_url(); ?>auth/logout" class="link">Logout</a>
             </h6>
           </li>
         </ul>
@@ -64,25 +64,25 @@
       </div>
       <div class="container">
         <div class="content-center brand">
-            <form role="form" method="post" enctype="multipart/form-data">
+          <form role="form" method="post" enctype="multipart/form-data" action="<?= base_url('member/create_post'); ?>">
 
-                <div class="form-group mb-3">
-                    <div class="input-group">
-                        <input class="form-control" type="text" name="title" placeholder="Title Song">
-                    </div>
-                </div>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile" name="audio">
-                    <label class="custom-file-label" for="customFile">Music</label>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary my-5" name="update">Simpan</button>
-                </div>
-            </form>
+            <div class="form-group mb-3">
+              <div class="input-group">
+                <input class="form-control" type="text" name="title" placeholder="Title Song">
+              </div>
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile" name="song">
+              <label class="custom-file-label" for="customFile">Music</label>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary my-5" name="update">Simpan</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    
+
   </div>
   <!--   Core JS Files   -->
   <script src="<?= base_url(); ?>assets/js/core/jquery.min.js" type="text/javascript"></script>
