@@ -30,13 +30,13 @@
 
         <div class="navbar-form navbar-left d-flex">
           <a class="navbar-brand" href="<?= base_url(); ?>member/index" rel="tooltip">
-            LOGO
+          A->Z.com
           </a>
 
           <div class="search-wrapper d-flex">
             <?php echo form_open('member/search') ?>
               <input type="text" name="keyword" class="form-control" placeholder="Search" name="search" action="post">
-              <button type="submit" class="btn btn-primary">Search</button>
+              <button type="submit" class="btn btn-primary btn-sm">Search</button>
             <?php echo form_close() ?>
           </div>
         </div>
@@ -81,13 +81,24 @@
 
             <div class="form-group mb-3">
               <div class="input-group">
-                <input class="form-control" type="text" name="title" placeholder="Title Song">
+                <input class="form-control" type="text" name="title" placeholder="Description">
               </div>
+
+              <div class="input-group">
+                <input class="form-control" type="text" name="price" placeholder="Price">
+              </div>
+
+              <div class="input-group">
+                <input class="form-control" type="text" name="phone" placeholder="Phone Number">
+              </div>
+
             </div>
+
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="customFile" name="song">
-              <label class="custom-file-label" for="customFile">Music</label>
+              <label class="custom-file-label" for="customFile">Image</label>
             </div>
+
             <div class="text-center">
               <button type="submit" class="btn btn-primary my-5" name="update">Simpan</button>
             </div>
@@ -108,7 +119,12 @@
               <div class="card mb-12">
                 <img class="card-img-top" src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Card image cap">
                 <div class="card-body">
+                <div class="wrapper-desc d-flex justify-content-between align-self-center">
                   <h2 class="card-title"><?= $post->username; ?></h2>
+                  <h2 class="card-title"><?= $post->price; ?>$</h2>
+                </div>
+                <hr/>
+                  <h5 class="card-text py-3"><?= $post->phone; ?></h5>
                   <p class="card-text"><?= $post->title; ?></p>
                   <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
                 </div>

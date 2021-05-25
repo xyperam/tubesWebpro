@@ -24,7 +24,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="<?= base_url(); ?>member/index">
-          Logo
+          A->Z.com
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar top-bar"></span>
@@ -133,7 +133,11 @@
                 <div class="card mb-12">
                   <img class="card-img-top" src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Card image cap">
                   <div class="card-body">
-                    <h4 class="card-title"><?= $user->username; ?></h4>
+                  <div class="wrapper-desc d-flex justify-content-between align-self-center">
+                    <h2 class="card-title"><?= $user->username; ?></h2>
+                    <h2 class="card-text"><?= $post->price; ?>$</h2>
+                  </div>
+                    <h5 class="card-text py-3"><?= $post->phone; ?></h5>
                     <p class="card-text"><?= $post->title; ?></p>
 
                     <div class="d-flex justify-content-between align-self-center">

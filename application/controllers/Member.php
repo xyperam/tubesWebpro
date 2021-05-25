@@ -42,12 +42,16 @@ class Member extends CI_Controller
 	public function create_post()
 	{
 		$title = $this->input->post("title");
+		$price = $this->input->post("price");
+		$phone = $this->input->post("phone");
 		$created_at = date("Y-m-d H:i:s");
 		$song = $this->_upload_foto();
 
 		$data = [
 			"user_id" => $this->user->id,
 			"title" => $title,
+			"price" => $price,
+			"phone" => $phone,
 			"song" => $song,
 			"created_at" => $created_at
 		];
