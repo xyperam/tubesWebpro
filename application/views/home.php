@@ -52,7 +52,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <h6>
-              <a href="<?= base_url(); ?>member/home" class="link">Home</a>
+              <a href="<?= base_url(); ?>member/index" class="link">Home</a>
             </h6>
           </li>
           <li class="nav-item">
@@ -76,7 +76,7 @@
       <div class="page-header-image" data-parallax="true" style="background-image:url('<?= base_url(); ?>assets/img/header.jpg');">
       </div>
       <div class="container">
-        <div class="content-center brand">
+        <div class="content-center brand mt-5">
           <form role="form" method="post" enctype="multipart/form-data" action="<?= base_url('member/create_post'); ?>">
 
             <div class="form-group mb-3">

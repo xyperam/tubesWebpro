@@ -71,7 +71,7 @@ class Auth extends CI_Controller
 				echo "
  				<script>
  					alert('Password salah');
- 					document.location.href = '../auth/';
+ 					document.location.href = '../auth/login';
  				</script>";
 			}
 		} else {
