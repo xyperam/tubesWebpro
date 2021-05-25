@@ -138,7 +138,10 @@
 
                     <div class="d-flex justify-content-between align-self-center">
                       <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
-                      <a class="btn btn-danger btn-sm" href="delete_post/<?= $post->id; ?>">Hapus</a>
+                      <div class="wrapper-button">
+                        <a class="btn btn-danger btn-sm" href="delete_post/<?= $post->id; ?>">Hapus</a>
+                        <button class="btn btn-primary btn-sm" disabled>Edit</button>
+                      </div>
                     </div>
 
 
