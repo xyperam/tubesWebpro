@@ -74,17 +74,6 @@ $route['search_users'] = 'member/search';
 
 
 
-// $route['register']['get'] = 'auth/register';
-// $route['register']['post'] = 'auth/post_register';
-// $route['login']['get'] = 'auth/login';
-// $route['login']['post'] = 'auth/post_login';
-// $route['logout'] = 'auth/logout';
-
-// $route['default_controller'] = 'member/index';
-// $route['profile'] = 'member/profile';
-// $route['create_post'] = 'member/create_post';
-// $route['update_profile'] = 'member/update_profile';
-// $route['delete_post/(:num)'] = 'member/delete_post/$1';
 
 // $route['admin'] = 'admin/index';
 // $route['edit'] = 'admin/edit';

@@ -15,14 +15,29 @@ class Member extends CI_Controller
 		if ($this->session->userdata("login") == null) {
 			redirect(base_url('login'));
 		}
-		$this->user = $this->UserModel->findOne("id", $this->session->userdata("login"));
+		$this->user = $this->UserModel->getOne("id", $this->session->userdata("login"));
 	}
+
+	public function search()
+	{
+		$keyword = $this->input->post("search");
+
+		$data = [
+			"user" => $this->user,
+			"users" => $this->UserModel->get_keyword($keyword)
+		];
+
+		$this->load->view('users');
+	}
+
+
 	public function index()
 	{
 		$data = [
 			"tes" => "tes",
 			"user" => $this->user,
-			"posts" => $this->PostModel->findAll()
+			"posts" => $this->PostModel->getAll()
+
 		];
 
 		$this->load->view('home', $data);
@@ -32,7 +47,7 @@ class Member extends CI_Controller
 	{
 		$data = [
 			"user" => $this->user,
-			"posts" => $this->PostModel->findAllByUser($this->user->id),
+			"posts" => $this->PostModel->getAllByUser($this->user->id),
 			"error" => " "
 		];
 		$this->load->view('profile', $data);
@@ -45,14 +60,14 @@ class Member extends CI_Controller
 		$price = $this->input->post("price");
 		$phone = $this->input->post("phone");
 		$created_at = date("Y-m-d H:i:s");
-		$song = $this->_upload_foto();
+		$image = $this->_upload_foto();
 
 		$data = [
 			"user_id" => $this->user->id,
 			"title" => $title,
 			"price" => $price,
 			"phone" => $phone,
-			"song" => $song,
+			"image" => $image,
 			"created_at" => $created_at
 		];
 		if ($this->PostModel->create($data) != 1) {
@@ -68,17 +83,17 @@ class Member extends CI_Controller
         </script>";
 	}
 
-
+	//upload image postingan
 	private function _upload_foto()
 	{
-		$config['upload_path']          = './song/';
-		$config['allowed_types']        = 'mp3|jpg|pdf|mp2|mp4';
+		$config['upload_path']          = './image/';
+		$config['allowed_types']        = 'png|jpg|jpeg';
 		$config['overwrite']			= true;
 		$config['max_size']             = 102400;
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload('song')) {
+		if (!$this->upload->do_upload('image')) {
 			echo "
             <script>
 			alert('Terjadi kesalahan upload');
@@ -87,12 +102,10 @@ class Member extends CI_Controller
 			die();
 		} else {
 			return $this->upload->data("file_name");
-			// if ($this->post->avatar != null && file_exists("./song/" . $this->post->song)) {
-			// 	unlink("./song/" . $this->post->song);
-			// }
-
 		}
 	}
+
+	//mengupdate profile
 	public function update_profile()
 	{
 		$id = $this->input->post("id");
@@ -126,6 +139,7 @@ class Member extends CI_Controller
             </script>";
 		}
 	}
+	//mengupload foto profil
 	private function _upload_avatar()
 	{
 		$config['upload_path']          = './avatar/';
@@ -165,15 +179,36 @@ class Member extends CI_Controller
             document.location.href = \"$this->profile\";
         </script>";
 	}
-	public function search()
+
+	public function edit_post($id)
 	{
-		$keyword = $this->input->post("search");
+		$id = $this->input->post("id");
+		$title = $this->input->post("title");
+		$price = $this->input->post("price");
+		$phone = $this->input->post("phone");
+		$image = $this->_upload_foto();
 
 		$data = [
-			"user" => $this->user,
-			"users" => $this->UserModel->get_keyword($keyword)
+			"user_id" => $this->user->id,
+			"title" => $title,
+			"price" => $price,
+			"phone" => $phone,
+			"image" => $image,
 		];
-		
-		$this->load->view('users');
+
+
+		if ($this->UserModel->update($data, $id) == 1) {
+			echo "
+            <script>
+                alert('Profile berhasil diubah');
+                document.location.href = \"$this->profile\";
+            </script>";
+		} else {
+			echo "
+            <script>
+                alert('Profile gagal diubah');
+                document.location.href = \"$this->profile\";
+            </script>";
+		}
 	}
 }

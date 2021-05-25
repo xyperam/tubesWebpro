@@ -18,7 +18,7 @@ class Auth extends CI_Controller
 		$email = $this->input->post("email");
 		$password = password_hash($this->input->post("password1"), PASSWORD_DEFAULT);
 
-		$user = $this->UserModel->findOne("username", $username);
+		$user = $this->UserModel->getOne("username", $username);
 		if ($user != null) {
 			echo "
  			<script>
@@ -57,7 +57,7 @@ class Auth extends CI_Controller
 		$username = $this->input->post("username");
 		$password = $this->input->post("password1");
 
-		$user = $this->UserModel->findOne("username", $username);
+		$user = $this->UserModel->getOne("username", $username);
 		if ($user != null) {
 			if (password_verify($password, $user->password)) {
 				$this->session->set_userdata(["login" => $user->id]);

@@ -1,15 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class UserModel extends CI_Model {
+class UserModel extends CI_Model
+{
     private $table = "user";
-    // public $id, $role, $username, $email, $password, $avatar;
 
-    public function findOne($col, $val)
+
+    public function getOne($col, $val)
     {
         return $this->db->get_where($this->table, [$col => $val])->row();
     }
-    public function findAll()
+    public function getAll()
     {
         return $this->db->get($this->table)->result();
     }
@@ -24,9 +25,8 @@ class UserModel extends CI_Model {
     public function get_keyword($keyword)
     {
         $this->db->select('*');
-        $this->db->form($table);
+        $this->db->form($data);
         $this->db->like('username', $keyword);
         return $this->db->get()->result();
     }
-    
 }

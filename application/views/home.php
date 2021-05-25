@@ -30,13 +30,13 @@
 
         <div class="navbar-form navbar-left d-flex">
           <a class="navbar-brand" href="<?= base_url(); ?>member/index" rel="tooltip">
-          A->Z.com
+            A->Z.com
           </a>
 
           <div class="search-wrapper d-flex">
             <?php echo form_open('member/search') ?>
-              <input type="text" name="keyword" class="form-control" placeholder="Search" name="search" action="post">
-              <button type="submit" class="btn btn-primary btn-sm">Search</button>
+            <input type="text" name="keyword" class="form-control" placeholder="Search" name="search" action="post">
+            <button type="submit" class="btn btn-primary btn-sm">Search</button>
             <?php echo form_close() ?>
           </div>
         </div>
@@ -95,7 +95,7 @@
             </div>
 
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile" name="song">
+              <input type="file" class="custom-file-input" id="customFile" name="image">
               <label class="custom-file-label" for="customFile">Image</label>
             </div>
 
@@ -110,28 +110,28 @@
   <div class="section section-typography card-wrapper">
     <div class="container">
       <div class="mx-auto text-center">
-            <h2 class="font-weight-bold mb-5">SALE..!!!</h2>
+        <h2 class="font-weight-bold mb-5">SALE..!!!</h2>
+      </div>
+
+      <?php foreach ($posts as $post) : ?>
+        <div class="row py-5 align-items-center">
+
+          <div class="card mb-12">
+            <img class="card-img-top" src="<?= base_url(); ?>image/<?= $post->image; ?>" alt="Card image cap">
+            <div class="card-body">
+              <div class="wrapper-desc d-flex justify-content-between align-self-center">
+                <h2 class="card-title"><?= $post->username; ?></h2>
+                <h2 class="card-title"><?= $post->price; ?>$</h2>
+              </div>
+              <hr />
+              <h5 class="card-text py-3"><?= $post->phone; ?></h5>
+              <p class="card-text"><?= $post->title; ?></p>
+              <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
+            </div>
           </div>
 
-          <?php foreach ($posts as $post) : ?>
-            <div class="row py-5 align-items-center">
-            
-              <div class="card mb-12">
-                <img class="card-img-top" src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Card image cap">
-                <div class="card-body">
-                <div class="wrapper-desc d-flex justify-content-between align-self-center">
-                  <h2 class="card-title"><?= $post->username; ?></h2>
-                  <h2 class="card-title"><?= $post->price; ?>$</h2>
-                </div>
-                <hr/>
-                  <h5 class="card-text py-3"><?= $post->phone; ?></h5>
-                  <p class="card-text"><?= $post->title; ?></p>
-                  <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
-                </div>
-              </div>
-
-            </div>
-          <?php endforeach; ?>
+        </div>
+      <?php endforeach; ?>
     </div>
   </div>
 

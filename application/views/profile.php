@@ -77,7 +77,7 @@
                 <form class="mt-5 px-5" action="update_profile" role="form" method="post" enctype="multipart/form-data">
 
                   <input value="<?= $user->id; ?>" type="hidden" name="id">
-                    <input value="<?= $user->avatar; ?>" type="hidden" name="old_avatar">
+                  <input value="<?= $user->avatar; ?>" type="hidden" name="old_avatar">
 
                   <div class="form-group mb-3">
                     <div class="input-group">
@@ -124,19 +124,19 @@
           <!-- awal container post -->
           <div class="container">
             <div class="mx-auto text-center">
-              <h2 class="font-weight-bold mb-5">Ceritaku</h2>
+              <h2 class="font-weight-bold mb-5">Properti</h2>
             </div>
 
             <?php foreach ($posts as $post) : ?>
 
               <div class="row py-5 align-items-center">
                 <div class="card mb-12">
-                  <img class="card-img-top" src="<?= base_url(); ?>song/<?= $post->song; ?>" alt="Card image cap">
+                  <img class="card-img-top" src="<?= base_url(); ?>image/<?= $post->image; ?>" alt="Card image cap">
                   <div class="card-body">
-                  <div class="wrapper-desc d-flex justify-content-between align-self-center">
-                    <h2 class="card-title"><?= $user->username; ?></h2>
-                    <h2 class="card-text"><?= $post->price; ?>$</h2>
-                  </div>
+                    <div class="wrapper-desc d-flex justify-content-between align-self-center">
+                      <h2 class="card-title"><?= $user->username; ?></h2>
+                      <h2 class="card-text"><?= $post->price; ?>$</h2>
+                    </div>
                     <h5 class="card-text py-3"><?= $post->phone; ?></h5>
                     <p class="card-text"><?= $post->title; ?></p>
 
@@ -144,7 +144,7 @@
                       <p class="card-text"><small class="text-muted">Last updated <?= $post->created_at; ?></small></p>
                       <div class="wrapper-button">
                         <a class="btn btn-danger btn-sm" href="delete_post/<?= $post->id; ?>">Hapus</a>
-                        <button class="btn btn-primary btn-sm" disabled>Edit</button>
+                        <button class="btn btn-primary btn-sm" data-target=".bd-example-modal-lg">Edit</button>
                       </div>
                     </div>
 
@@ -157,6 +157,53 @@
 
           </div>
           <!-- end container -->
+          <!-- Modal edit post -->
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+
+                <form class="mt-5 px-5" action="update_profile" role="form" method="post" enctype="multipart/form-data">
+
+                  <input value="<?= $user->id; ?>" type="hidden" name="id">
+
+
+                  <div class="form-group mb-3">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                      </div>
+                      <input class="form-control" value="<?= $post->$title; ?>" type="text" name="title" required>
+                    </div>
+                  </div>
+                  <div class="form-group mb-3">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                      <input class="form-control" value="<?= $post->price; ?>" type="email" name="price" required>
+                    </div>
+                  </div>
+                  <div class="form-group mb-3">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                      <input class="form-control" value="<?= $post->phone; ?>" type="text" name="phone" required>
+                    </div>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" name="image">
+                    <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-4" name="update">Simpan</button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+          <!-- End Modal -->
         </div>
       </div>
     </div>
